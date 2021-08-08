@@ -5,7 +5,7 @@ zolo20 Infra repository
 bastion_IP = 178.154.222.179
 someinternalhost_IP = 10.128.0.21
 
-testapp_IP = 130.193.36.242
+testapp_IP = 178.154.205.135
 testapp_port = 9292
 ```
 
