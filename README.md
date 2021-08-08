@@ -94,3 +94,17 @@ yc compute instance create \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
     --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4
 ```
+
+## ДЗ 05
+### Самостоятельная работа
+
+Команда для валидации шаблона с параметрами (запускаем из каталога ./packer):
+```
+packer validate -var-file=variables.json ubuntu16.json
+```
+
+Команда для билда образа с указанием var-файла (запускаем из каталога ./packer):
+
+```
+packer build -var-file=variables.json ubuntu16.json
+```
