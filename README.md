@@ -1,9 +1,13 @@
 # zolo20_infra
 zolo20 Infra repository
 
-
+```
 bastion_IP = 178.154.222.179
 someinternalhost_IP = 10.128.0.21
+
+testapp_IP = 178.154.205.135
+testapp_port = 9292
+```
 
 ## ДЗ 03
 
@@ -45,7 +49,7 @@ Host someinternalhost
 
 На сервере bastion_IP выполнить команду:
 
->sudo bash [setupvpn.sh](setupvpn.sh)
+>sudo bash [setupvpn.sh](VPN/setupvpn.sh)
 
 Следуем инструкциям установщика по адресу:
 
@@ -56,7 +60,7 @@ test с PIN 6214157507237678334670591556762,
 добавлем сервер и организацию и включаем в организацию
 пользователя и сервер.
 
->Файл настройки клиента VPN - [cloud-bastion.ovpn](cloud-bastion.ovpn)
+>Файл настройки клиента VPN - [cloud-bastion.ovpn](VPN/cloud-bastion.ovpn)
 
 ### Дополнительное задание: валидный сертификат для панели управления VPN сервера
 
@@ -66,3 +70,27 @@ test с PIN 6214157507237678334670591556762,
 Доступ к printunl - https://178-154-222-179.sslip.io
 
 ![Image 1](images/settings_encrypt_domain.png)
+
+## ДЗ 04
+### Самостоятельная работа
+
+>Команды по установке Ruby - [install_ruby.sh](install_ruby.sh)
+
+>Команды по установке MongoDB - [install_mongodb.sh](install_mongodb.sh)
+
+>Команды скачивания кода, установки зависимостей через bundler и запуск приложения - [deploy.sh](deploy.sh)
+
+### Дополнительное задание: создание startup script, который будет запускаться при создании инстанса.
+
+Файл с метаданными [metadata.yaml](metadata.yaml) и команду для создания инстанса:
+
+```
+yc compute instance create \
+    --name reddit-app \
+    --metadata serial-port-enable=1 \
+    --metadata-from-file user-data=metadata.yaml \
+    --hostname reddit-app \
+    --memory=4 \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts,size=10GB \
+    --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4
+```
