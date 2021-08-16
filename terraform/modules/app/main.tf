@@ -1,13 +1,13 @@
-provider "yandex" {
-  version                  = "0.35"
-  service_account_key_file = var.service_account_key_file
-  cloud_id                 = var.cloud_id
-  folder_id                = var.folder_id
-  zone                     = var.zone
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
 }
 
 resource "yandex_compute_instance" "app" {
-  name  = "terraform-${count.index}"
+  name  = "redit-app-${count.index}"
   count = var.count_instance
   resources {
     cores  = 2
@@ -41,11 +41,11 @@ resource "yandex_compute_instance" "app" {
   }
 
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "../files/puma.service"
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "../files/deploy.sh"
   }
 }
