@@ -9,7 +9,7 @@ testapp_IP = 178.154.205.135
 testapp_port = 9292
 ```
 
-## ДЗ 03
+## ДЗ 04
 
 ## Подключение через бастион хост
 
@@ -71,7 +71,7 @@ test с PIN 6214157507237678334670591556762,
 
 ![Image 1](images/settings_encrypt_domain.png)
 
-## ДЗ 04
+## ДЗ 06
 ### Самостоятельная работа
 
 >Команды по установке Ruby - [install_ruby.sh](install_ruby.sh)
@@ -95,7 +95,7 @@ yc compute instance create \
     --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4
 ```
 
-## ДЗ 05
+## ДЗ 07
 ### Самостоятельная работа
 
 Команда для валидации шаблона с параметрами (запускаем из каталога ./packer):
@@ -108,3 +108,10 @@ packer validate -var-file=variables.json ubuntu16.json
 ```
 packer build -var-file=variables.json ubuntu16.json
 ```
+## ДЗ 08
+### Самостоятельная работа
+
+1. Установить (terraform)[https://www.terraform.io/]
+2. Создать файл с переменными, за образец взять файл terraform/terraform.tfvars.example
+3. Перейти в каталог terraform
+4. выполнить terraform init, затем terraform apply
