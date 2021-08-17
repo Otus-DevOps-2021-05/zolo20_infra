@@ -34,3 +34,12 @@ variable "db_disk_image" {
   description = "Disk image for reddit db"
   default     = "reddit-db-base"
 }
+variable "access_key" {
+  description = "Identity access key for Storage"
+}
+variable "secret_key" {
+  description = "Access key for Storage"
+}
+variable "bucket" {
+  description = "Bucket name"
+}
