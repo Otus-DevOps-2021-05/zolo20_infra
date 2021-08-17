@@ -115,3 +115,13 @@ packer build -var-file=variables.json ubuntu16.json
 2. Создать файл с переменными, за образец взять файл terraform/terraform.tfvars.example
 3. Перейти в каталог terraform
 4. выполнить terraform init, затем terraform apply
+
+## ДЗ 10
+
+После выполнения команды:
+
+```
+ansible app -m command -a 'rm -rf ~/reddit'
+```
+Выполняется рекурсивное удаление всех каталогов и подкаталогов в папке reddit.
+Поэтому статус задачи "Clone repo" будет change
