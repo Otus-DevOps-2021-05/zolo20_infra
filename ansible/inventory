@@ -1,0 +1,4 @@
+[app]
+appserver ansible_host=178.154.220.67 ansible_port=22
+[db]
+dbserver ansible_host=178.154.222.89 ansible_port=22
